@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🏆 Voting Penghargaan CV KAWI 2025 — Karyawan</title>
+<title>🏆 Nominasi Penghargaan CV KAWI 2025</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -125,8 +125,15 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
 .btn-submit:hover { transform:translateY(-2px);box-shadow:0 8px 26px rgba(74,222,128,0.5); }
 .btn-submit:disabled { opacity:0.6;cursor:not-allowed;transform:none; }
 
-/* INTRO */
-.intro-card { background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid rgba(212,175,55,0.2);border-radius:22px;padding:44px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:fadeUp 0.8s 0.2s ease both; }
+/* IDENTITY FORM */
+.identity-card { background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid rgba(212,175,55,0.2);border-radius:22px;padding:40px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:fadeUp 0.8s 0.2s ease both; }
+.identity-card h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,28px);font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px; }
+.identity-card p { color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:28px; }
+.field-group { text-align:left;margin-bottom:18px; }
+.field-label { font-size:11px;font-weight:600;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;display:block; }
+.field-input { width:100%;padding:13px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:11px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:all .2s; }
+.field-input:focus { border-color:var(--gold);background:rgba(212,175,55,0.07);box-shadow:0 0 0 3px rgba(212,175,55,0.12); }
+.field-input::placeholder { color:var(--muted); }
 .intro-card h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,30px);font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px; }
 .intro-card p { color:var(--muted);font-size:13px;line-height:1.7;max-width:440px;margin:0 auto 26px; }
 .cats-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:26px;text-align:left; }
@@ -165,17 +172,7 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
 .branch-count { margin-left:auto;font-size:11px;color:var(--muted); }
 .branch-picked { font-size:10px;background:rgba(74,222,128,0.15);color:var(--green);border:1px solid rgba(74,222,128,0.3);padding:2px 8px;border-radius:99px;margin-left:8px;display:none; }
 .branch-picked.show { display:inline; }
-/* IDENTITY FORM */
-.identity-card { background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid rgba(212,175,55,0.2);border-radius:22px;padding:40px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:fadeUp 0.8s 0.2s ease both; }
-.identity-card h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,28px);font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px; }
-.identity-card p { color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:28px; }
-.field-group { text-align:left;margin-bottom:18px; }
-.field-label { font-size:11px;font-weight:600;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;display:block; }
-.field-input { width:100%;padding:13px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:11px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:all .2s; }
-.field-input:focus { border-color:var(--gold);background:rgba(212,175,55,0.07);box-shadow:0 0 0 3px rgba(212,175,55,0.12); }
-.field-input::placeholder { color:var(--muted); }
-.branch-btn { width:100%;padding:14px 20px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:12px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:left;transition:all 0.2s; }
-.branch-btn:hover,.branch-btn.selected { background:rgba(212,175,55,0.2);border-color:var(--gold);color:var(--gold-light); }
+.branch-divider { height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent);margin:18px 0; }
 </style>
 </head>
 <body>
@@ -193,21 +190,21 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
 <div class="header" id="main-header">
   <div class="header-icon">🏆</div>
   <h1>NOMINASI PENGHARGAAN<br>CV KAWI 2025</h1>
-  <div class="tag">⭐ Form untuk Seluruh Karyawan ⭐</div>
+  <div class="tag">⭐ Form untuk Pak Herman &amp; Pak Erik ⭐</div>
   <div class="divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
 </div>
 
 <!-- PROGRESS -->
 <div class="prog-wrap" id="prog-sec" style="display:none">
-  <div class="prog-label"><span id="prog-txt">Kategori 1 dari 3</span><span id="prog-pct">33%</span></div>
-  <div class="prog-bg"><div class="prog-bar" id="prog-bar" style="width:33%"></div></div>
+  <div class="prog-label"><span id="prog-txt">Kategori 1 dari 8</span><span id="prog-pct">13%</span></div>
+  <div class="prog-bg"><div class="prog-bar" id="prog-bar" style="width:13%"></div></div>
   <div class="step-row" id="step-row"></div>
 </div>
 
 <!-- IDENTITY -->
 <div class="identity-card" id="identity">
   <div style="font-size:40px;margin-bottom:12px">👤</div>
-  <h2>Identitas Karyawan</h2>
+  <h2>Identitas Penilai</h2>
   <p>Sebelum memulai, mohon isi data diri terlebih dahulu.</p>
   <div class="field-group">
     <label class="field-label">Nama Lengkap</label>
@@ -229,75 +226,94 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
 <!-- INTRO -->
 <div class="intro-card" id="intro" style="display:none">
   <div style="font-size:44px;margin-bottom:14px">🎖️</div>
-  <h2>Selamat Datang,<br>Karyawan CV KAWI!</h2>
-  <p>Silakan berikan suaramu untuk <strong style="color:var(--gold)">3 kategori</strong> penghargaan CV KAWI 2025. Setiap kategori berada di halaman terpisah.</p>
+  <h2>Selamat Datang,<br>Pak Herman &amp; Pak Erik!</h2>
+  <p>Silakan berikan penilaian untuk seluruh <strong style="color:var(--gold)">8 kategori</strong> penghargaan CV KAWI 2025. Setiap kategori berada di halaman terpisah.</p>
   <div class="cats-grid">
-    <div class="cat-chip">🔥 SPV Tergacor <span class="cat-n">1</span></div>
-    <div class="cat-chip">💛 SPV Terfavorit <span class="cat-n">2</span></div>
-    <div class="cat-chip">❤️ Sales Terfavorit <span class="cat-n">3</span></div>
+    <div class="cat-chip">⭐ SPV Terbaik <span class="cat-n">1</span></div>
+    <div class="cat-chip">🔥 SPV Tergacor <span class="cat-n">2</span></div>
+    <div class="cat-chip">💛 SPV Terfavorit <span class="cat-n">3</span></div>
+    <div class="cat-chip">🥇 Sales Terbaik <span class="cat-n">4</span></div>
+    <div class="cat-chip">❤️ Sales Terfavorit <span class="cat-n">5</span></div>
+    <div class="cat-chip">🤝 Office &amp; Kasir <span class="cat-n">6</span></div>
+    <div class="cat-chip">📦 Team Gudang <span class="cat-n">7</span></div>
+    <div class="cat-chip">🚚 Support Pengiriman <span class="cat-n">8</span></div>
   </div>
-  <div class="note-box" style="text-align:left;margin-bottom:24px">📌 <strong>Catatan:</strong> Satu karyawan hanya bisa submit sekali. Voting ditutup <strong>14 Maret 2026</strong>. 🙏</div>
-  <button class="start-btn" onclick="startVoting()">🗳️ Mulai Voting</button>
+  <div class="note-box" style="text-align:left;margin-bottom:24px">📌 <strong>Catatan:</strong> Satu akun hanya bisa submit sekali. Voting ditutup <strong>14 Maret 2026</strong>. 🙏</div>
+  <button class="start-btn" onclick="startVoting()">🗳️ Mulai Penilaian</button>
 </div>
 
-<!-- CARD 1: SPV TERGACOR -->
+<!-- CARD 1: SPV TERBAIK -->
 <div class="card" id="card-1">
-  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 1/3</span></div>
-  <div class="cat-badge">🔥 Kategori 1 / 3</div>
-  <div class="card-title">SPV <span>Tergacor</span></div>
-  <div class="card-desc">Pilih Supervisor yang paling "gacor" — sering komplain, banyak omong, banyak ini itu, baper, dan gaje! 😄</div>
+  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 1/5</span></div>
+  <div class="cat-badge">⭐ Kategori 1 / 5</div>
+  <div class="card-title">SPV <span>Terbaik</span></div>
+  <div class="card-desc">Pilih Supervisor dengan kinerja terbaik berdasarkan penilaian Pak Herman dan Pak Erik.</div>
   <div class="nom-grid" id="nom-1"></div>
   <div class="shimmer"></div>
-  <div class="note-box"><strong>🔥 Kriteria SPV Tergacor:</strong> sering komplain · banyak omong · banyak ini itu · baper · gaje</div>
+  <div class="note-box"><strong>⭐ SPV Terbaik</strong> — dinilai dari kinerja, pencapaian target tim, dan kepemimpinan secara keseluruhan.</div>
   <div class="btn-row">
-    <button class="btn btn-prev" onclick="startVoting()">← Kembali</button>
+    <button class="btn btn-prev" onclick="goTo(0)">← Kembali</button>
     <button class="btn btn-next" onclick="goNext(1)">Lanjut →</button>
   </div>
 </div>
 
-<!-- CARD 2: SPV TERFAVORIT -->
+<!-- CARD 2: SPV TERGACOR -->
 <div class="card" id="card-2">
-  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 2/3</span></div>
-  <div class="cat-badge">💛 Kategori 2 / 3</div>
-  <div class="card-title">SPV <span>Terfavorit</span></div>
-  <div class="card-desc">Pilih Supervisor yang paling disukai, istimewa, guyub/rukun, dan mantap!</div>
+  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 2/5</span></div>
+  <div class="cat-badge">🔥 Kategori 2 / 5</div>
+  <div class="card-title">SPV <span>Tergacor</span></div>
+  <div class="card-desc">Pilih Supervisor yang paling "gacor" — sering komplain, banyak omong, banyak ini itu, baper, dan gaje! 😄</div>
   <div class="nom-grid" id="nom-2"></div>
   <div class="shimmer"></div>
-  <div class="note-box"><strong>💛 Kriteria SPV Terfavorit:</strong> disukai · istimewa · guyub/rukun · mantap</div>
+  <div class="note-box"><strong>🔥 Kriteria SPV Tergacor:</strong> sering komplain · banyak omong · banyak ini itu · baper · gaje</div>
   <div class="btn-row">
     <button class="btn btn-prev" onclick="goTo(1)">← Kembali</button>
     <button class="btn btn-next" onclick="goNext(2)">Lanjut →</button>
   </div>
 </div>
 
-<!-- CARD 3: SALES TERFAVORIT (pilih cabang dulu) -->
+<!-- CARD 3: SPV TERFAVORIT -->
 <div class="card" id="card-3">
-  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 3/3</span></div>
-  <div class="cat-badge">❤️ Kategori 3 / 3</div>
-  <div class="card-title">Sales <span>Terfavorit</span></div>
-  <div class="card-desc">Pilih <strong style="color:var(--gold)">cabangmu dulu</strong>, lalu pilih 1 Sales Terfavorit dari cabang tersebut.</div>
-
-  <!-- Pilih Cabang -->
-  <div id="branch-selector" style="margin-bottom:20px">
-    <p style="font-size:12px;color:var(--muted);margin-bottom:12px">Kamu dari cabang mana?</p>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <button class="branch-btn" id="bbtn-banyuwangi" onclick="selectBranch('banyuwangi')">🌊 Cabang Banyuwangi</button>
-      <button class="branch-btn" id="bbtn-jember" onclick="selectBranch('jember')">🏔️ Cabang Jember</button>
-      <button class="branch-btn" id="bbtn-probolinggo" onclick="selectBranch('probolinggo')">🌿 Cabang Probolinggo</button>
-    </div>
-  </div>
-
-  <!-- Nominasi (muncul setelah pilih cabang) -->
-  <div id="branch-nominees" style="display:none">
-    <div class="branch-header" id="selected-branch-header"></div>
-    <div class="nom-grid" id="nom-3"></div>
-  </div>
-
+  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 3/5</span></div>
+  <div class="cat-badge">💛 Kategori 3 / 5</div>
+  <div class="card-title">SPV <span>Terfavorit</span></div>
+  <div class="card-desc">Pilih Supervisor yang paling disukai, istimewa, guyub/rukun, dan mantap!</div>
+  <div class="nom-grid" id="nom-3"></div>
   <div class="shimmer"></div>
-  <div class="note-box"><strong>❤️ Catatan:</strong> Pilih 1 Sales Terfavorit dari cabangmu sendiri.</div>
+  <div class="note-box"><strong>💛 Kriteria SPV Terfavorit:</strong> disukai · istimewa · guyub/rukun · mantap</div>
   <div class="btn-row">
     <button class="btn btn-prev" onclick="goTo(2)">← Kembali</button>
-    <button class="btn btn-submit" id="submit-btn" onclick="submitVoting()">✅ Submit Voting</button>
+    <button class="btn btn-next" onclick="goNext(3)">Lanjut →</button>
+  </div>
+</div>
+
+<!-- CARD 4: SALES TERBAIK -->
+<div class="card" id="card-4">
+  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 4/5</span></div>
+  <div class="cat-badge">🥇 Kategori 4 / 5</div>
+  <div class="card-title">Sales <span>Terbaik</span></div>
+  <div class="card-desc">Pilih <strong style="color:var(--gold)">1 Sales terbaik per cabang</strong> berdasarkan pencapaian dan penilaian Pak Herman &amp; Pak Erik.</div>
+  <div id="sales-branches-4"></div>
+  <div class="shimmer"></div>
+  <div class="note-box"><strong>🥇 Catatan:</strong> Pilih 1 orang dari masing-masing cabang — Banyuwangi, Jember, dan Probolinggo.</div>
+  <div class="btn-row">
+    <button class="btn btn-prev" onclick="goTo(3)">← Kembali</button>
+    <button class="btn btn-next" onclick="goNext(4)">Lanjut →</button>
+  </div>
+</div>
+
+<!-- CARD 5: SALES TERFAVORIT -->
+<div class="card" id="card-5">
+  <div class="card-logo"><img src="LOGO_PLACEHOLDER" alt="CV KAWI"><span>CV. KAWI · Kategori 5/5</span></div>
+  <div class="cat-badge">❤️ Kategori 5 / 5</div>
+  <div class="card-title">Sales <span>Terfavorit</span></div>
+  <div class="card-desc">Pilih <strong style="color:var(--gold)">1 Sales terfavorit per cabang</strong> — sales yang paling menginspirasi dan disukai rekan-rekan.</div>
+  <div id="sales-branches-5"></div>
+  <div class="shimmer"></div>
+  <div class="note-box"><strong>❤️ Catatan:</strong> Pilih 1 orang dari masing-masing cabang — Banyuwangi, Jember, dan Probolinggo.</div>
+  <div class="btn-row">
+    <button class="btn btn-prev" onclick="goTo(4)">← Kembali</button>
+    <button class="btn btn-submit" id="submit-btn" onclick="submitVoting()">✅ Submit Penilaian</button>
   </div>
 </div>
 
@@ -305,7 +321,7 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
 <div class="success-card" id="success">
   <div class="success-icon">🎉</div>
   <h2>Penilaian Berhasil!</h2>
-  <p>Terima kasih sudah berpartisipasi! Penilaian untuk <strong style="color:var(--gold)">Nominasi Penghargaan CV KAWI 2025</strong> sudah berhasil direkam.<br><br>Hasil akan diumumkan pada acara penghargaan. 🏆</p>
+  <p>Terima kasih, Pak Herman &amp; Pak Erik! Penilaian untuk <strong style="color:var(--gold)">Nominasi Penghargaan CV KAWI 2025</strong> sudah berhasil direkam.<br><br>Hasil akan diumumkan pada acara penghargaan. 🏆</p>
   <div class="shimmer" style="max-width:200px;margin:22px auto"></div>
   <p style="color:var(--gold);font-size:13px">🌟 Terima kasih atas penilaiannya! 🌟</p>
 </div>
@@ -458,49 +474,19 @@ function selectBranchNom(catNum, branchIdx, memberIdx, name, branchKey) {
   selections[catNum][branchKey] = name;
 }
 
-// ===== BRANCH SELECTOR (karyawan cat 3) =====
-let selectedBranchKey = null;
+buildSalesBranches(4);
+buildSalesBranches(5);
 
-function selectBranch(key) {
-  selectedBranchKey = key;
-  // Highlight selected button
-  ['banyuwangi','jember','probolinggo'].forEach(k => {
-    document.getElementById('bbtn-' + k).classList.toggle('selected', k === key);
-  });
-  // Build nominees for selected branch
-  const branch = salesBranches.find(b => b.key === key);
-  const header = document.getElementById('selected-branch-header');
-  header.innerHTML = `<span class="branch-icon">${branch.icon}</span><span class="branch-name">${branch.name}</span>`;
-  const grid = document.getElementById('nom-3');
-  grid.innerHTML = '';
-  branch.members.forEach((member, mi) => {
-    const d = document.createElement('div');
-    d.className = 'nom-card';
-    d.id = `kw-3-${mi}`;
-    d.onclick = () => {
-      grid.querySelectorAll('.nom-card').forEach(c => c.classList.remove('selected'));
-      d.classList.add('selected');
-      selections[3] = { name: member.name, branch: key };
-    };
-    const photoHtml = member.photo
-      ? `<img src="${member.photo}" alt="${member.name}" onerror="this.parentElement.innerHTML='💼'">`
-      : '💼';
-    d.innerHTML = `
-      <div class="chk">✓</div>
-      <div class="nom-num">${mi+1}</div>
-      <div class="photo-ring">${photoHtml}</div>
-      <div class="nom-name">${member.name}</div>
-      <div class="nom-sub">${branch.name.replace('Cabang ','')}</div>`;
-    grid.appendChild(d);
-  });
-  document.getElementById('branch-nominees').style.display = 'block';
-  // Reset selection when branch changes
-  selections[3] = null;
-}
+const dummyList = [
+  { name: "Tim A", sub: "— segera diperbarui —", icon: "🏢" },
+  { name: "Tim B", sub: "— segera diperbarui —", icon: "🏢" },
+  { name: "Tim C", sub: "— segera diperbarui —", icon: "🏢" },
+];
 
 const catData = {
   1: spvList,
   2: spvList,
+  3: spvList,
 };
 
 // ===== STARS =====
@@ -539,11 +525,11 @@ function buildGrid(cat, list) {
   });
 }
 
-[1,2].forEach(c => buildGrid(c, catData[c]));
+[1,2,3].forEach(c => buildGrid(c, catData[c]));
 
 // ===== STEP DOTS =====
 const stepRow = document.getElementById('step-row');
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 5; i++) {
   const d = document.createElement('div');
   d.className = 'sdot'; d.id = 'sd-' + i;
   d.onclick = () => { if(currentPage > 0) goTo(i); };
@@ -578,23 +564,22 @@ function startVoting() {
 }
 
 function goTo(page) {
-  for (let i = 1; i <= 3; i++) {
-    const card = document.getElementById('card-' + i);
-    if (card) card.classList.remove('active');
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById('card-' + i).classList.remove('active');
     const d = document.getElementById('sd-' + i);
-    if (d) d.classList.remove('active','done');
+    d.classList.remove('active','done');
   }
   currentPage = page;
-  if (page >= 1 && page <= 3) {
+  if (page >= 1 && page <= 5) {
     document.getElementById('card-' + page).classList.add('active');
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 5; i++) {
       const d = document.getElementById('sd-' + i);
       if (i === page) d.classList.add('active');
       else if (i < page) d.classList.add('done');
     }
-    const pct = Math.round(page / 3 * 100);
+    const pct = Math.round(page / 5 * 100);
     document.getElementById('prog-bar').style.width = pct + '%';
-    document.getElementById('prog-txt').textContent = 'Kategori ' + page + ' dari 3';
+    document.getElementById('prog-txt').textContent = 'Kategori ' + page + ' dari 5';
     document.getElementById('prog-pct').textContent = pct + '%';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -603,40 +588,43 @@ function goTo(page) {
 function goNext(cur) { goTo(cur + 1); }
 
 async function submitVoting() {
-  for (let i of [1,2]) {
+  for (let i of [1,2,3]) {
     if (!selections[i]) {
       alert('⚠️ Kamu belum memilih di Kategori ' + i + '!\nSilakan kembali dan isi semua kategori.');
       goTo(i); return;
     }
   }
-  if (!selectedBranchKey) {
-    alert('⚠️ Kategori 3: Pilih cabangmu dulu!'); return;
-  }
-  if (!selections[3]) {
-    alert('⚠️ Kategori 3: Belum memilih Sales Terfavorit!'); return;
+  for (let cat of [4,5]) {
+    for (let b of salesBranches) {
+      if (!selections[cat] || !selections[cat][b.key]) {
+        alert(`⚠️ Kategori ${cat}: belum memilih dari ${b.name}!\nSilakan kembali dan pilih 1 orang dari setiap cabang.`);
+        goTo(cat); return;
+      }
+    }
   }
 
   const btn = document.getElementById('submit-btn');
   btn.textContent = '⏳ Menyimpan...'; btn.disabled = true;
 
+  const fmt = (sel) => typeof sel === 'object' ? Object.entries(sel).map(([k,v]) => `${k}: ${v}`).join(' | ') : (sel?.name || sel || '-');
+
   const payload = {
-    form: 'Link 2 - Karyawan',
+    form: 'Link 1 - Pak Herman & Pak Erik',
     nama: document.getElementById('id-nama').value.trim(),
     depo: document.getElementById('id-depo').value.trim(),
     jabatan: document.getElementById('id-jabatan').value.trim(),
-    cat1_spv_tergacor: selections[1]?.name || '-',
-    cat2_spv_terfavorit: selections[2]?.name || '-',
-    cat3_sales_terfavorit: `${selections[3]?.name || '-'} (${selectedBranchKey})`,
+    cat1: selections[1]?.name || '-',
+    cat2: selections[2]?.name || '-',
+    cat3: selections[3]?.name || '-',
+    cat4: fmt(selections[4]),
+    cat5: fmt(selections[5]),
   };
 
   try {
     await fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
   } catch(e) { console.log(e); }
 
-  for (let i = 1; i <= 3; i++) {
-    const card = document.getElementById('card-' + i);
-    if (card) card.classList.remove('active');
-  }
+  for (let i = 1; i <= 5; i++) document.getElementById('card-' + i).classList.remove('active');
   document.getElementById('prog-sec').style.display = 'none';
   document.getElementById('main-header').style.display = 'none';
   document.getElementById('main-logo').style.display = 'none';
