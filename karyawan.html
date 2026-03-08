@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --gold: #D4AF37;
-  --gold-light: #F5E27A;
-  --gold-dark: #A07C10;
-  --deep: #0A0A14;
-  --navy: #0F1220;
-  --card: #161B2E;
-  --card2: #1E2440;
-  --text: #F0EBE3;
-  --muted: #8892AA;
-  --green: #4ADE80;
+  --gold: #F0C040;
+  --gold-light: #FFE57A;
+  --gold-dark: #C49020;
+  --deep: #080810;
+  --navy: #0D1020;
+  --card: #141828;
+  --card2: #1C2238;
+  --text: #FFFFFF;
+  --muted: #B0BCCC;
+  --green: #5EF09A;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; overflow-x: hidden; }
@@ -174,8 +174,10 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
 .field-input { width:100%;padding:13px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:11px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:all .2s; }
 .field-input:focus { border-color:var(--gold);background:rgba(212,175,55,0.07);box-shadow:0 0 0 3px rgba(212,175,55,0.12); }
 .field-input::placeholder { color:var(--muted); }
-.branch-btn { width:100%;padding:14px 20px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:12px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:left;transition:all 0.2s; }
-.branch-btn:hover,.branch-btn.selected { background:rgba(212,175,55,0.2);border-color:var(--gold);color:var(--gold-light); }
+.branch-btn { width:100%;padding:14px 20px;background:rgba(240,192,64,0.1);border:1px solid rgba(240,192,64,0.3);border-radius:12px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:left;transition:all 0.2s;display:flex;align-items:center;gap:8px;font-weight:500; }
+.branch-btn:hover { background:rgba(240,192,64,0.18);border-color:var(--gold); }
+.branch-btn.open { background:rgba(240,192,64,0.22);border-color:var(--gold);color:var(--gold-light);border-bottom-left-radius:0;border-bottom-right-radius:0; }
+.branch-drop-inner { background:rgba(240,192,64,0.06);border:1px solid rgba(240,192,64,0.3);border-top:none;border-radius:0 0 12px 12px;padding:14px; }
 </style>
 </head>
 <body>
@@ -277,20 +279,52 @@ body { background: var(--deep); font-family: 'DM Sans', sans-serif; color: var(-
   <div class="card-title">Sales <span>Terfavorit</span></div>
   <div class="card-desc">Pilih <strong style="color:var(--gold)">cabangmu dulu</strong>, lalu pilih 1 Sales Terfavorit dari cabang tersebut.</div>
 
-  <!-- Pilih Cabang -->
-  <div id="branch-selector" style="margin-bottom:20px">
-    <p style="font-size:12px;color:var(--muted);margin-bottom:12px">Kamu dari cabang mana?</p>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <button class="branch-btn" id="bbtn-banyuwangi" onclick="selectBranch('banyuwangi')">🌊 Cabang Banyuwangi</button>
-      <button class="branch-btn" id="bbtn-jember" onclick="selectBranch('jember')">🏔️ Cabang Jember</button>
-      <button class="branch-btn" id="bbtn-probolinggo" onclick="selectBranch('probolinggo')">🌿 Cabang Probolinggo</button>
-    </div>
-  </div>
+  <!-- Pilih Cabang (inline accordion) -->
+  <p style="font-size:12px;color:var(--muted);margin-bottom:12px">Kamu dari cabang mana? Klik untuk expand 👇</p>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:4px">
 
-  <!-- Nominasi (muncul setelah pilih cabang) -->
-  <div id="branch-nominees" style="display:none">
-    <div class="branch-header" id="selected-branch-header"></div>
-    <div class="nom-grid" id="nom-3"></div>
+    <!-- Banyuwangi -->
+    <div id="acc-banyuwangi">
+      <button class="branch-btn" id="bbtn-banyuwangi" onclick="selectBranch('banyuwangi')">
+        <span>🌊 Cabang Banyuwangi</span>
+        <span id="arr-banyuwangi" style="margin-left:auto;transition:transform 0.2s">▼</span>
+        <span id="bpick-banyuwangi" style="display:none;background:rgba(94,240,154,0.2);color:var(--green);font-size:10px;padding:2px 8px;border-radius:99px;margin-left:6px">✓ Dipilih</span>
+      </button>
+      <div id="bdrop-banyuwangi" style="display:none">
+        <div class="branch-drop-inner">
+          <div class="nom-grid" id="nom-3-banyuwangi"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jember -->
+    <div id="acc-jember">
+      <button class="branch-btn" id="bbtn-jember" onclick="selectBranch('jember')">
+        <span>🏔️ Cabang Jember</span>
+        <span id="arr-jember" style="margin-left:auto;transition:transform 0.2s">▼</span>
+        <span id="bpick-jember" style="display:none;background:rgba(94,240,154,0.2);color:var(--green);font-size:10px;padding:2px 8px;border-radius:99px;margin-left:6px">✓ Dipilih</span>
+      </button>
+      <div id="bdrop-jember" style="display:none">
+        <div class="branch-drop-inner">
+          <div class="nom-grid" id="nom-3-jember"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Probolinggo -->
+    <div id="acc-probolinggo">
+      <button class="branch-btn" id="bbtn-probolinggo" onclick="selectBranch('probolinggo')">
+        <span>🌿 Cabang Probolinggo</span>
+        <span id="arr-probolinggo" style="margin-left:auto;transition:transform 0.2s">▼</span>
+        <span id="bpick-probolinggo" style="display:none;background:rgba(94,240,154,0.2);color:var(--green);font-size:10px;padding:2px 8px;border-radius:99px;margin-left:6px">✓ Dipilih</span>
+      </button>
+      <div id="bdrop-probolinggo" style="display:none">
+        <div class="branch-drop-inner">
+          <div class="nom-grid" id="nom-3-probolinggo"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="shimmer"></div>
@@ -365,7 +399,7 @@ const spvList = [
   { name: "Bapak Robert",   sub: "Cabang Jember",      photo: BASE + "Robert.jpeg" },
   { name: "Bapak Catur",    sub: "Cabang Probolinggo", photo: BASE + "Catur.jpeg" },
   { name: "Bapak Sulthon",  sub: "Toys",               photo: BASE + "Sulthon.jpeg" },
-  { name: "Bapak Luthfi",   sub: "Horeka",             photo: BASE + "Luthfi.jpeg" },
+  { name: "Bapak Lutfi",   sub: "Horeka",             photo: BASE + "Lutfi.jpeg" },
 ];
 
 const salesBranches = [
@@ -458,44 +492,71 @@ function selectBranchNom(catNum, branchIdx, memberIdx, name, branchKey) {
   selections[catNum][branchKey] = name;
 }
 
-// ===== BRANCH SELECTOR (karyawan cat 3) =====
+// ===== BRANCH SELECTOR (karyawan cat 3 — inline accordion) =====
 let selectedBranchKey = null;
+const branchKeys = ['banyuwangi','jember','probolinggo'];
+
+// Pre-build all grids on page load
+function initBranchGrids() {
+  salesBranches.forEach(branch => {
+    const grid = document.getElementById('nom-3-' + branch.key);
+    if (!grid) return;
+    grid.innerHTML = '';
+    branch.members.forEach((member, mi) => {
+      const d = document.createElement('div');
+      d.className = 'nom-card';
+      d.id = `kw-3-${branch.key}-${mi}`;
+      d.onclick = () => {
+        // Deselect all in this branch
+        grid.querySelectorAll('.nom-card').forEach(c => c.classList.remove('selected'));
+        d.classList.add('selected');
+        selections[3] = { name: member.name, branch: branch.key };
+        // Show green badge on button
+        branchKeys.forEach(k => {
+          const pick = document.getElementById('bpick-' + k);
+          if (pick) pick.style.display = 'none';
+        });
+        const pick = document.getElementById('bpick-' + branch.key);
+        if (pick) pick.style.display = 'inline';
+      };
+      const photoHtml = member.photo
+        ? `<img src="${member.photo}" alt="${member.name}" onerror="this.parentElement.innerHTML='💼'">`
+        : '💼';
+      d.innerHTML = `
+        <div class="chk">✓</div>
+        <div class="nom-num">${mi+1}</div>
+        <div class="photo-ring">${photoHtml}</div>
+        <div class="nom-name">${member.name}</div>
+        <div class="nom-sub">${branch.name.replace('Cabang ','')}</div>`;
+      grid.appendChild(d);
+    });
+  });
+}
 
 function selectBranch(key) {
-  selectedBranchKey = key;
-  // Highlight selected button
-  ['banyuwangi','jember','probolinggo'].forEach(k => {
-    document.getElementById('bbtn-' + k).classList.toggle('selected', k === key);
+  const isOpen = document.getElementById('bdrop-' + key).style.display !== 'none';
+  // Toggle: close all, then open clicked one if it was closed
+  branchKeys.forEach(k => {
+    document.getElementById('bdrop-' + k).style.display = 'none';
+    document.getElementById('bbtn-' + k).classList.remove('open');
+    const arr = document.getElementById('arr-' + k);
+    if (arr) arr.style.transform = 'rotate(0deg)';
   });
-  // Build nominees for selected branch
-  const branch = salesBranches.find(b => b.key === key);
-  const header = document.getElementById('selected-branch-header');
-  header.innerHTML = `<span class="branch-icon">${branch.icon}</span><span class="branch-name">${branch.name}</span>`;
-  const grid = document.getElementById('nom-3');
-  grid.innerHTML = '';
-  branch.members.forEach((member, mi) => {
-    const d = document.createElement('div');
-    d.className = 'nom-card';
-    d.id = `kw-3-${mi}`;
-    d.onclick = () => {
-      grid.querySelectorAll('.nom-card').forEach(c => c.classList.remove('selected'));
-      d.classList.add('selected');
-      selections[3] = { name: member.name, branch: key };
-    };
-    const photoHtml = member.photo
-      ? `<img src="${member.photo}" alt="${member.name}" onerror="this.parentElement.innerHTML='💼'">`
-      : '💼';
-    d.innerHTML = `
-      <div class="chk">✓</div>
-      <div class="nom-num">${mi+1}</div>
-      <div class="photo-ring">${photoHtml}</div>
-      <div class="nom-name">${member.name}</div>
-      <div class="nom-sub">${branch.name.replace('Cabang ','')}</div>`;
-    grid.appendChild(d);
-  });
-  document.getElementById('branch-nominees').style.display = 'block';
-  // Reset selection when branch changes
-  selections[3] = null;
+  if (!isOpen) {
+    document.getElementById('bdrop-' + key).style.display = 'block';
+    document.getElementById('bbtn-' + key).classList.add('open');
+    const arr = document.getElementById('arr-' + key);
+    if (arr) arr.style.transform = 'rotate(180deg)';
+    selectedBranchKey = key;
+    // Reset selection when switching branch
+    if (selections[3] && selections[3].branch !== key) {
+      selections[3] = null;
+      branchKeys.forEach(k2 => {
+        const pick = document.getElementById('bpick-' + k2);
+        if (pick) pick.style.display = 'none';
+      });
+    }
+  }
 }
 
 const catData = {
@@ -609,9 +670,6 @@ async function submitVoting() {
       goTo(i); return;
     }
   }
-  if (!selectedBranchKey) {
-    alert('⚠️ Kategori 3: Pilih cabangmu dulu!'); return;
-  }
   if (!selections[3]) {
     alert('⚠️ Kategori 3: Belum memilih Sales Terfavorit!'); return;
   }
@@ -626,7 +684,7 @@ async function submitVoting() {
     jabatan: document.getElementById('id-jabatan').value.trim(),
     cat1_spv_tergacor: selections[1]?.name || '-',
     cat2_spv_terfavorit: selections[2]?.name || '-',
-    cat3_sales_terfavorit: `${selections[3]?.name || '-'} (${selectedBranchKey})`,
+    cat3_sales_terfavorit: `${selections[3]?.name || '-'} (${selections[3]?.branch || selectedBranchKey})`,
   };
 
   try {
@@ -789,6 +847,8 @@ function adminDeletePhoto(key) {
 
 // Load saved photos on startup
 applyPhotos();
+// Init branch grids
+initBranchGrids();
 </script>
 </body>
 </html>
